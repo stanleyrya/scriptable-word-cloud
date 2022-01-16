@@ -1,11 +1,50 @@
 # Dynamic Scriptable Word Cloud!
 
-This demo shows off a dynamic word cloud class that can be copy-pasted to your own script! Throughout the demo simply press on an example row to copy a full-working Scriptable script. These examples use a minified version of the word cloud classes which are easier to read. You can also cut to the chase and use either the normal [1] or minified [2] versions on Github. I strongly recommend using the minified version to start.
-    createDescriptionRow(`-> [1] - https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/word-cloud.js`, 60, "https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/word-cloud.js"),
-    createDescriptionRow(`-> [2] - https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/minified-word-cloud.js`, 60, "https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/minified-word-cloud.js"),
+A set of classes that can create a word cloud image. Basic Usage:
+```
+const wordCloudWords = [new WordCloudWord({word, weight}), ...]
+const wordCloud = new WordCloud({width, height, wordCloudWords});
+const image = await wordCloud.getImage();
+```
+
+There are three word cloud scripts provided in this repo:
+| Script | Description |
+| --- | --- |
+| word-cloud.js | The full word cloud script that shows how everything works. |
+| minified-word-cloud.js | A minified version of the word cloud script that is significantly easier to build with. |
+| word-cloud-demo.js | An interactive demo that includes copy-pastable Scriptable scripts. |
+
+I recommend starting with the demo script or minified script. I only recommend using the full word-cloud.js script if you are experienced and are trying to modify how the word cloud itself works.
+
+## Basic Input Parameters
 
 There are only three required fields: Width, Height, and WordCloudWords. WordCloudWords are objects with two properties: Word (string) and Weight (number). Here's an example of a WordCloudWords array:
-    createDescriptionRow(JSON.stringify(wordCloudWords, undefined, "\t"), 300),
+```
+const wordCloudWords = [
+  new WordCloudWord({ word: "Seattle", weight: 10 }),
+  new WordCloudWord({ word: "Boston", weight: 10 }),
+  new WordCloudWord({ word: "Chicago", weight: 8 }),
+  new WordCloudWord({ word: "Denver", weight: 7 }),
+  new WordCloudWord({ word: "Boise", weight: 7 }),
+  new WordCloudWord({ word: "Los Angeles", weight: 7 }),
+  new WordCloudWord({ word: "San Fransisco", weight: 6 }),
+  new WordCloudWord({ word: "Victoria", weight: 6 }),
+  new WordCloudWord({ word: "Portland", weight: 5 }),
+  new WordCloudWord({ word: "London", weight: 5 }),
+  new WordCloudWord({ word: "Dublin", weight: 3 }),
+  new WordCloudWord({ word: "Barcelona", weight: 3 }),
+  new WordCloudWord({ word: "Amsterdam", weight: 3 }),
+  new WordCloudWord({ word: "Budapest", weight: 3 }),
+  new WordCloudWord({ word: "Venice", weight: 3 }),
+  new WordCloudWord({ word: "Florence", weight: 2 }),
+  new WordCloudWord({ word: "Oslo", weight: 2 }),
+  new WordCloudWord({ word: "Paris", weight: 2 }),
+  new WordCloudWord({ word: "Tokyo", weight: 1 }),
+  new WordCloudWord({ word: "New York", weight: 1 }),
+  new WordCloudWord({ word: "Fort", weight: 1 })
+];
+```
+
 This object could be static or you could code something to generate it. I recommend calculating a word's weight by it's frequency in a dataset (Calendar events, weather, etc.), but you could use whatever you want!
 
 Next is Width and Height. These are pretty simple to work with. Here are some examples:
@@ -22,8 +61,7 @@ The word cloud is generated dynamically so it can fit different widget sizes. It
 | --- | --- | --- |
 | Image | Image | `{ width: 200, height: 600 }` |
 
-The next sections will use the sample WordCloudWords object and a Width and Height of 250 each. Remember you can press any example row to get a working script example. Have fun!
-
+The next sections will use the sample WordCloudWords object and a Width and Height of 250 each. Have fun!
 
 ## Flags!
 Now we get to the fun stuff. Here are some flags that you can pass in to modify the word cloud's behavior. When debug is set to true it will display the 'hitboxes' used in the placement algorithm for each word. it will also display the placement algorithm's path:
