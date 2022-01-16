@@ -59,7 +59,7 @@ The word cloud is generated dynamically so it can fit different widget sizes. It
 
 | Dark Mode | Light Mode | Simplified Input |
 | --- | --- | --- |
-| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/3-530x250-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/3-530x250-light.JPG) | `{ width: 200, height: 600 }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/4-200x600-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/4-200x600-light.JPG) | `{ width: 200, height: 600 }` |
 
 The next sections will use the sample WordCloudWords object and a Width and Height of 250 each. Have fun!
 
