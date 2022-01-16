@@ -317,6 +317,10 @@ if (config.runsInWidget) {
   const widgetImage = widget.addImage(image);
   widgetImage.applyFillingContentMode();
   widgetImage.centerAlignImage();
+  // Device.isUsingDarkAppearance() is slow to update, but seems to be the
+  // only way to safely update the background and font color at the same time.
+  // This is partly due to Color.dynamic() not working in the Draw Context.
+  widget.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
   Script.setWidget(widget);
   Script.complete();
 } else {
@@ -516,7 +520,9 @@ async function createDemoTable() {
   ];
 
   rows.forEach((row) => {
-	// Use the same method to determine dark mode that the word cloud is using
+  // Device.isUsingDarkAppearance() is slow to update, but seems to be the
+  // only way to safely update the background and font color at the same time.
+  // This is partly due to Color.dynamic() not working in the Draw Context.
 	row.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
     table.addRow(row);
   });

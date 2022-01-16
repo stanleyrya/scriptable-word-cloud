@@ -136,8 +136,10 @@ if (config.runsInWidget) {
   const widgetImage = widget.addImage(image);
   widgetImage.applyFillingContentMode();
   widgetImage.centerAlignImage();
-  // Device.isUsingDarkAppearance() is slow, protect against not reading the words
-  widget.backgroundColor = Color.dynamic(Color.white(), Color.black());
+  // Device.isUsingDarkAppearance() is slow to update, but seems to be the
+  // only way to safely update the background and font color at the same time.
+  // This is partly due to Color.dynamic() not working in the Draw Context.
+  widget.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
   Script.setWidget(widget);
   Script.complete();
 } else {
