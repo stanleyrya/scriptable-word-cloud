@@ -51,15 +51,15 @@ Next is Width and Height. These are pretty simple to work with. Here are some ex
 
 | Dark Mode | Light Mode | Simplified Input |
 | --- | --- | --- |
-| Image | Image | `{ width: 250, height: 250 }` |
-| Image | Image | `{ width: 530, height: 250 }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/2-250x250-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/2-250x250-light.JPG) | `{ width: 250, height: 250 }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/3-530x250-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/3-530x250-light.JPG) | `{ width: 530, height: 250 }` |
 
 
 The word cloud is generated dynamically so it can fit different widget sizes. It will also work with weirder sizes like long ones. Get creative!
 
 | Dark Mode | Light Mode | Simplified Input |
 | --- | --- | --- |
-| Image | Image | `{ width: 200, height: 600 }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/3-530x250-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/3-530x250-light.JPG) | `{ width: 200, height: 600 }` |
 
 The next sections will use the sample WordCloudWords object and a Width and Height of 250 each. Have fun!
 
@@ -68,13 +68,13 @@ Now we get to the fun stuff. Here are some flags that you can pass in to modify 
 
 | Dark Mode | Light Mode | Simplified Input |
 | --- | --- | --- |
-| Image | Image | `{ debug: true }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/5-debug-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/5-debug-light.JPG) | `{ debug: true }` |
 
 The growToFit flag determines whether or not the canvas will 'grow' to fit all of the words provided. When set to true (default) it will continuously increase the size of the canvas until all of the provided words can be placed. If it is set to false it will simply try to place words as best it can:
 
 | Dark Mode | Light Mode | Simplified Input |
 | --- | --- | --- |
-| Image | Image | `{ growToFit: false }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/6-grow-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/6-grow-light.JPG) | `{ growToFit: false }` |
 
 ## Placement Functions!
 Placement functions are plotting functions that return (x,y) coordinates. They are called continuously until all of the words can be plotted with their center on a coordinate (or there is no more space if growToFit is false). They can be confusing at first but they are very powerful. Before we get into it, here's an example:
@@ -106,10 +106,10 @@ Here are some placement algorithms I created that are different than the provide
 
 | Dark Mode | Light Mode | Simplified Input |
 | --- | --- | --- |
-| Image | Image | `{ placementFunction: galaxyPlacementFunction }` |
-| Image | Image | `{ placementFunction: galaxyPlacementFunction, debug: true }` |
-| Image | Image | `{ placementFunction: starPlacementFunction }` |
-| Image | Image | `{ placementFunction: starPlacementFunction, debug: true }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/7-galaxy-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/7-galaxy-light.JPG) | `{ placementFunction: galaxyPlacementFunction }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/8-galaxy-debug-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/8-galaxy-debug-light.JPG) | `{ placementFunction: galaxyPlacementFunction, debug: true }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/9-star-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/9-star-light.JPG) | `{ placementFunction: starPlacementFunction }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/10-star-debug-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/10-star-debug-light.JPG) | `{ placementFunction: starPlacementFunction, debug: true }` |
 
 ## Weight Functions!
 Word clouds aren't complete without modifying the font! A weight function can be provided to modify how the words are displayed. You can use this function to convert weight to size, font type, opacity, color, and more! Here's the default method for context:
@@ -139,8 +139,8 @@ Just as I mentioned above, I recommend playing with the functions provided and g
 
 | Dark Mode | Light Mode | Simplified Input |
 | --- | --- | --- |
-| Image | Image | `{ weightFunction: builtInFestiveWeightFunction }` |
-| Image | Image | `{ weightFunction: hackerWeightFunction }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/11-festive-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/11-festive-light.JPG) | `{ weightFunction: builtInFestiveWeightFunction }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/12-hacker-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/12-hacker-light.JPG) | `{ weightFunction: hackerWeightFunction }` |
 
 ## ... with Custom Fonts!
 You can use custom fonts too! Before you get too excited custom fonts require specific setup and are not guarranteed to work. The word cloud algorithm depends on generating word 'hitboxes' to make sure words don't overlap with each other. At this time the hitboxes are generated by rendering the word with Scriptable's WebView tool. Custom fonts aren't referencable from within the tool so they have to be installed on the fly using a CSS stylesheet URL. The word cloud itself is being rendered using Scriptable's DrawContext so the font needs to be installed locally too for the whole thing to work.
@@ -167,9 +167,9 @@ After all of that hassle I hope you agree the effort is worth it! Once these fon
 
 | Font Link | Dark Mode | Light Mode | Broken / Missing Font | Simplified Input |
 | --- | --- | --- | --- | --- |
-| [Lacquer](https://fonts.google.com/specimen/Lacquer) | Image | Image | TODO | `{ weightFunction: builtInFestiveWeightFunction }` |
-| [Cinzel Decorative](https://fonts.google.com/specimen/Cinzel+Decorative) | Image | Image | TODO | `{ weightFunction: hackerWeightFunction }` |
-| [Fredericka the Great](https://fonts.google.com/specimen/Fredericka+the+Great) | Image | Image | TODO | `{ weightFunction: hackerWeightFunction }` |
+| [Lacquer](https://fonts.google.com/specimen/Lacquer) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/13-custom-spooky-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/13-custom-spooky-light.JPG) | TODO | `{ weightFunction: builtInFestiveWeightFunction }` |
+| [Cinzel Decorative](https://fonts.google.com/specimen/Cinzel+Decorative) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-light.JPG) | TODO | `{ weightFunction: hackerWeightFunction }` |
+| [Fredericka the Great](https://fonts.google.com/specimen/Fredericka+the+Great) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-light.JPG) | TODO | `{ weightFunction: hackerWeightFunction }` |
 
 
 ## Thank You!
