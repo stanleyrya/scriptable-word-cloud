@@ -896,6 +896,11 @@ function stencilWeightFunction(wordCloudWord) {
  ***** EXAMPLE PLACEMENT FUNCTIONS *****
  ***************************************/
 
+/**
+ * Please see this script for additional examples:
+ * https://github.com/stanleyrya/scriptable-playground/blob/main/experiments/word-cloud-experiments/draw-spiral.js
+ */
+
 function spiralPlacementFunction(width, height, centerX, centerY, xRatio, yRatio, previousResult) {
   let radius, radiusDirection, angle, angleDirection;
   if (previousResult) {
@@ -981,9 +986,9 @@ const wordCloud = new WordCloud({
   width: width,
   height: height,
   wordCloudWords,
-  debug: true,
-//  weightFunction: hackerWeightFunction
-//  placementFunction: galaxyPlacementFunction
+//  debug: true,
+//  weightFunction: hackerWeightFunction,
+//  placementFunction: galaxyPlacementFunction,
 });
 const image = await wordCloud.getImage();
 

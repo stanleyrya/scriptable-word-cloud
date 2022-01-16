@@ -88,6 +88,11 @@ function stencilWeightFunction(o){return new WordCloudProcessedWord({word:o.word
  ***** EXAMPLE PLACEMENT FUNCTIONS *****
  ***************************************/
 
+/**
+ * Please see this script for additional examples:
+ * https://github.com/stanleyrya/scriptable-playground/blob/main/experiments/word-cloud-experiments/draw-spiral.js
+ */
+
 function spiralPlacementFunction(a,n,i,t,r,e,o){let c,l,s,u;return o?(({radius:c,radiusDirection:l,angle:s,angleDirection:u}=o),c+=.75*l,s+=2*Math.PI/50*u):(c=0,s=0,l=Math.random()<.5?-1:1,u=Math.random()<.5?-1:1),{x:i+c*Math.cos(s)*r,y:t+c*Math.sin(s)*e,radius:c,angle:s,radiusDirection:l,angleDirection:u}}
 function galaxyPlacementFunction(n,t,a,c,i,e,o){const h=o?o.i+1:0,l=234*Math.PI/500*h;return{x:2*l*Math.cos(10*l)+a,y:2*l*Math.sin(10*l)+c,angle:l,i:h}}
 function starPlacementFunction(t,n,a,c,e,i,o){let s=o?o.i+1:0;const h=336*Math.PI/500*s;return{x:.25*h*Math.cos(100*h)+a,y:.25*h*Math.sin(100*h)+c,angle:h,i:s}}
@@ -125,6 +130,9 @@ const wordCloud = new WordCloud({
   width: width,
   height: height,
   wordCloudWords,
+//  debug: true,
+//  weightFunction: hackerWeightFunction,
+//  placementFunction: galaxyPlacementFunction,
 });
 const image = await wordCloud.getImage();
 

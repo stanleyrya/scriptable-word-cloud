@@ -152,6 +152,11 @@ function stencilWeightFunction(wordCloudWord) {
  ***** EXAMPLE PLACEMENT FUNCTIONS *****
  ***************************************/
 
+/**
+ * Please see this script for additional examples:
+ * https://github.com/stanleyrya/scriptable-playground/blob/main/experiments/word-cloud-experiments/draw-spiral.js
+ */
+
 function spiralPlacementFunction(width, height, centerX, centerY, xRatio, yRatio, previousResult) {
   let radius, radiusDirection, angle, angleDirection;
   if (previousResult) {
@@ -381,8 +386,8 @@ async function createDemoTable() {
     createTitleRow("Dynamic Word Cloud!"),
 	  await createDemoRow({ width: 700, height: 250 }, false),
     createDescriptionRow("This demo shows off a dynamic word cloud class that can be copy-pasted to your own script! Throughout the demo simply press on an example row to copy a full-working Scriptable script. These examples use a minified version of the word cloud classes which are easier to read. You can also cut to the chase and use either the normal [1] or minified [2] versions on Github. I strongly recommend using the minified version to start.", 160),
-    createDescriptionRow(`-> [1] - https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/word-cloud.js`, 60, "https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/word-cloud.js"),
-    createDescriptionRow(`-> [2] - https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/minified-word-cloud.js`, 60, "https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/minified-word-cloud.js"),
+    createDescriptionRow(`-> [1] - https://github.com/stanleyrya/scriptable-word-cloud/blob/main/word-cloud.js`, 60, "https://github.com/stanleyrya/scriptable-word-cloud/blob/main/word-cloud.js"),
+    createDescriptionRow(`-> [2] - https://github.com/stanleyrya/scriptable-word-cloud/blob/main/minified-word-cloud.js`, 60, "https://github.com/stanleyrya/scriptable-word-cloud/blob/main/minified-word-cloud.js"),
 
     createDescriptionRow("There are only three required fields: Width, Height, and WordCloudWords. WordCloudWords are objects with two properties: Word (string) and Weight (number). Here's an example of a WordCloudWords array:", 80),
     createDescriptionRow(JSON.stringify(wordCloudWords, undefined, "\t"), 300),
@@ -428,7 +433,7 @@ async function createDemoTable() {
 `, 320),
     createDescriptionRow("The inputs width, height, centerX, and centerY are pretty straightforward. xRatio and yRatio are the ratio of the side compared to the largest side and can be useful when scaling the algorithm for different input parameters. PreviousResult contains the results from the last iteration of the algorithm, which at a minimum includes the last x and y values. If it's helpful you can pass additional values in the result and use it in the next iteration, like radius and angle in the example.", 180),
     createDescriptionRow("I recommend reading the example functions and modifying them to understand how they work. I also recommend googling some cool (x,y) plots and converting them to placement functions. For investigation you could modify my script here:", 100),
-    createDescriptionRow("-> https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/experiments/draw-spiral.js", 60, 'https://github.com/stanleyrya/scriptable-playground/blob/main/word-cloud/experiments/draw-spiral.js'),
+    createDescriptionRow("-> https://github.com/stanleyrya/scriptable-playground/blob/main/experiments/word-cloud-experiments/draw-spiral.js", 60, 'https://github.com/stanleyrya/scriptable-playground/blob/main/experiments/word-cloud-experiments/draw-spiral.js'),
     createDescriptionRow("Here are some placement algorithms I created that are different than the provided spiral one. When the debug parameter is set to true you can see what the algorithm is plotting:", 80),
 	  await createDemoRow({
       placementFunction: galaxyPlacementFunction,
