@@ -170,7 +170,7 @@ TL;DR: You need to both install the font locally and provide a reference to the 
   }
 ```
 
-The fontName is the font family. [This article](https://9to5mac.com/2020/06/12/fontcase-open-source-fonts-app-iphone-ipad) suggests [this app]("https://apps.apple.com/us/app/fontcase-manage-your-type/id1205074470) is the safest way to download fonts to iOS. Be careful, use at your own risk!
+The fontName is the font family. [This article](https://9to5mac.com/2020/06/12/fontcase-open-source-fonts-app-iphone-ipad) suggests [this app](https://apps.apple.com/us/app/fontcase-manage-your-type/id1205074470) is the safest way to download fonts to iOS. Be careful, use at your own risk!
 
 After all of that hassle I hope you agree the effort is worth it! Once these fonts are installed they will begin working:
 
