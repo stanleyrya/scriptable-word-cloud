@@ -410,6 +410,9 @@ async function createDemoTable() {
 	  await createDemoRow({ debug: true }),
     createDescriptionRow("The growToFit flag determines whether or not the canvas will 'grow' to fit all of the words provided. When set to true (default) it will continuously increase the size of the canvas until all of the provided words can be placed. If it is set to false it will simply try to place words as best it can:", 120),
     await createDemoRow({ growToFit: false }),
+    createDescriptionRow("The respectScreenScale flag is passed to the DrawContext [1]. If you are running into performance issues (for example, the script does not display on the homescreen) please try setting this to false. Until a performance update is made to the script you can also try removing words until it displays.", 120),
+    createDescriptionRow(`-> [1] - https://docs.scriptable.app/drawcontext/#respectscreenscale`, 60, "https://docs.scriptable.app/drawcontext/#respectscreenscale"),
+    await createDemoRow({ respectScreenScale: false }),
 
 // -------------------------------- //
 
