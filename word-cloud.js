@@ -146,6 +146,12 @@ class WordCloud {
    *   [growthFunction=this._defaultGrowthFunction]
    *   - A function that determines how the canvas
    *     should grow if growToFit is true.
+   * @param {boolean} [respectScreenScale=true]
+   *   - A boolean that modifies the
+   *     "respectScreenScale" feature in the
+   *     DrawContext. Turning it off may help
+   *     performance and memory issues on the
+   *     homescreen.
    * @param {boolean} [debug=false]
    *   - A boolean that writes additional context to
    *     the canvas for debugging.
@@ -158,6 +164,7 @@ class WordCloud {
     placementFunction = this._defaultPlacementFunction,
     growToFit = true,
     growthFunction = this._defaultGrowthFunction,
+    respectScreenScale = true,
     debug = false
   }) {
     if (!width || !height || !wordCloudWords) {
@@ -170,6 +177,7 @@ class WordCloud {
     this.weightFunction = weightFunction;
     this.growToFit = !!growToFit;
     this.growthFunction = growthFunction;
+    this.respectScreenScale = !!respectScreenScale;
     this.debug = !!debug;
 
     this.processedWords = wordCloudWords.map(wordCloudWord => this.weightFunction(wordCloudWord));
@@ -763,7 +771,7 @@ class WordCloud {
 
     this.ctx = new DrawContext();
     this.ctx.opaque = false;
-    this.ctx.respectScreenScale = true;
+    this.ctx.respectScreenScale = this.respectScreenScale;
     this.ctx.size = new Size(width, height);
 
     // If debug is on, run the placement function one
@@ -983,12 +991,25 @@ const width = config.widgetFamily === "small" ? 250 : 530;
 const height = config.widgetFamily === "large" ? 530 : 250;
 
 const wordCloud = new WordCloud({
-  width: width,
-  height: height,
+  // required
+
+  width,
+  height,
   wordCloudWords,
-//  debug: true,
-//  weightFunction: hackerWeightFunction,
-//  placementFunction: galaxyPlacementFunction,
+
+  // optional
+
+  // may help with homescreen memory issues
+  // respectScreenScale: false,
+
+  // shows how the algorithm works
+  // debug: true,
+
+  // changes the way way words are displayed
+  // weightFunction: hackerWeightFunction,
+
+  // changes the way words are placed
+  // placementFunction: starPlacementFunction,
 });
 const image = await wordCloud.getImage();
 
