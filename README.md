@@ -82,7 +82,7 @@ The growToFit flag determines whether or not the canvas will 'grow' to fit all o
 
 | Dark Mode | Light Mode | Simplified Input |
 | --- | --- | --- |
-| TODO | TODO | `{ respectScreenScale: false }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/16-blurry-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/16-blurry-light.JPG) | `{ respectScreenScale: false }` |
 
 ## Placement Functions!
 Placement functions are plotting functions that return (x,y) coordinates. They are called continuously until all of the words can be plotted with their center on a coordinate (or there is no more space if growToFit is false). They can be confusing at first but they are very powerful. Before we get into it, here's an example:
