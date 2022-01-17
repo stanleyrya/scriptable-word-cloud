@@ -24,11 +24,12 @@
  * Here's the complete WordCloud constructor for the curious!
  *  {
  *    width, height, wordCloudWords, // required
+ *    respectScreenScale = true,
  *    growToFit = true,
- *    debug = false
+ *    debug = false,
  *    weightFunction = this._defaultWeightFunction,
  *    placementFunction = this._defaultPlacementFunction,
- *    growthFunction = this._defaultGrowthFunction
+ *    growthFunction = this._defaultGrowthFunction,
  *  }
  *
  * This script is split into four sections to make it easier to edit:

@@ -24,11 +24,12 @@
  * Here's the complete WordCloud constructor for the curious!
  *  {
  *    width, height, wordCloudWords, // required
+ *    respectScreenScale = true,
  *    growToFit = true,
- *    debug = false
+ *    debug = false,
  *    weightFunction = this._defaultWeightFunction,
  *    placementFunction = this._defaultPlacementFunction,
- *    growthFunction = this._defaultGrowthFunction
+ *    growthFunction = this._defaultGrowthFunction,
  *  }
  *
  * This script is split into four sections to make it easier to edit:
@@ -127,12 +128,25 @@ const width = config.widgetFamily === "small" ? 250 : 530;
 const height = config.widgetFamily === "large" ? 530 : 250;
 
 const wordCloud = new WordCloud({
-  width: width,
-  height: height,
+  // required
+
+  width,
+  height,
   wordCloudWords,
-//  debug: true,
-//  weightFunction: hackerWeightFunction,
-//  placementFunction: galaxyPlacementFunction,
+
+  // optional
+
+  // may help with homescreen memory issues
+  // respectScreenScale: false,
+
+  // shows how the algorithm works
+  // debug: true,
+
+  // changes the way way words are displayed
+  // weightFunction: hackerWeightFunction,
+
+  // changes the way words are placed
+  // placementFunction: starPlacementFunction,
 });
 const image = await wordCloud.getImage();
 

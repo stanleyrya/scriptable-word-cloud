@@ -24,11 +24,12 @@
  * Here's the complete WordCloud constructor for the curious!
  *  {
  *    width, height, wordCloudWords, // required
+ *    respectScreenScale = true,
  *    growToFit = true,
- *    debug = false
+ *    debug = false,
  *    weightFunction = this._defaultWeightFunction,
  *    placementFunction = this._defaultPlacementFunction,
- *    growthFunction = this._defaultGrowthFunction
+ *    growthFunction = this._defaultGrowthFunction,
  *  }
  *
  */
@@ -296,11 +297,12 @@ const demoTemplate = `
  * Here's the complete WordCloud constructor for the curious!
  *  {
  *    width, height, wordCloudWords, // required
+ *    respectScreenScale = true,
  *    growToFit = true,
- *    debug = false
+ *    debug = false,
  *    weightFunction = this._defaultWeightFunction,
  *    placementFunction = this._defaultPlacementFunction,
- *    growthFunction = this._defaultGrowthFunction
+ *    growthFunction = this._defaultGrowthFunction,
  *  }
  *
  */
