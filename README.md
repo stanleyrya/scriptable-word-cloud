@@ -78,6 +78,12 @@ The growToFit flag determines whether or not the canvas will 'grow' to fit all o
 | --- | --- | --- |
 | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/6-grow-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/6-grow-light.JPG) | `{ growToFit: false }` |
 
+[The respectScreenScale flag is passed to the DrawContext](https://docs.scriptable.app/drawcontext/#respectscreenscale). If you are running into performance issues (for example, the script does not display on the homescreen) please try setting this to false. Until a performance update is made to the script you can also try removing words until it displays.
+
+| Dark Mode | Light Mode | Simplified Input |
+| --- | --- | --- |
+| TODO | TODO | `{ respectScreenScale: false }` |
+
 ## Placement Functions!
 Placement functions are plotting functions that return (x,y) coordinates. They are called continuously until all of the words can be plotted with their center on a coordinate (or there is no more space if growToFit is false). They can be confusing at first but they are very powerful. Before we get into it, here's an example:
 
