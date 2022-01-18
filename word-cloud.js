@@ -558,7 +558,7 @@ class WordCloud {
     if (this.debug && shouldDraw) {
       this.ctx.setLineWidth(1);
       this.ctx.addPath(path);
-      this.ctx.setStrokeColor(new Color ("6693F5"));
+      this.ctx.setStrokeColor(new Color("6693F5"));
       this.ctx.strokePath();
     }
     return placed;
