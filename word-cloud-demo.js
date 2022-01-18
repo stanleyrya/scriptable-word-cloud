@@ -344,6 +344,9 @@ widgetImage.centerAlignImage();
 // against this you can set the background explicitly:
 widget.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
 
+// Alternatively, consider adding an image as the background :)
+// widget.backgroundImage = await new Request('YOUR IMAGE URL').loadImage();
+
 if (config.runsInWidget) {
   Script.setWidget(widget);
   Script.complete();
@@ -544,6 +547,27 @@ async function createDemoTable() {
 	  await createDemoRow({
       weightFunction: stencilWeightFunction,
     }),
+
+
+// -------------------------------- //
+
+
+	createTitleRow("Putting it all together!"),
+    createDescriptionRow("All of these features can be joined together with backgrounds to create beautiful word clouds. The word cloud class is transparent, so simply add another image as the background image and voila!", 100),
+    createDescriptionRow("For widgets you can follow these steps below:", 60),
+    createDescriptionRow(`
+widget.backgroundImage = await new Request('YOUR IMAGE URL').loadImage();
+`, 240),
+	  await createDemoRow({
+      weightFunction: celestialWeightFunction,
+      placementFunction: galaxyPlacementFunction,
+      respectScreenScale: false,
+    }),
+	  await createDemoRow({
+      weightFunction: builtInFestiveWeightFunction,
+    }),
+
+// -------------------------------- //
 
 	  createTitleRow("Thank You!"),
     createDescriptionRow(`If you enjoyed this demo or the scripts please consider buying me a coffee! I'd also love it if you tried out my other scripts on GitHub. Thanks again!`, 60),

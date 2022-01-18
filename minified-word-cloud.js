@@ -166,6 +166,9 @@ widgetImage.centerAlignImage();
 // against this you can set the background explicitly:
 widget.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
 
+// Alternatively, consider adding an image as the background :)
+// widget.backgroundImage = await new Request('YOUR IMAGE URL').loadImage();
+
 if (config.runsInWidget) {
   Script.setWidget(widget);
   Script.complete();

@@ -1034,6 +1034,7 @@ widget.setPadding(0, 0, 0, 0);
 const widgetImage = widget.addImage(image);
 widgetImage.applyFillingContentMode();
 widgetImage.centerAlignImage();
+
 // The word cloud image has a clear background.
 // The default weight function uses Device.isUsingDarkAppearance()
 // to set the font color. It is slow to update
@@ -1041,6 +1042,9 @@ widgetImage.centerAlignImage();
 // widget's automatic background. To protect
 // against this you can set the background explicitly:
 widget.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
+
+// Alternatively, consider adding an image as the background :)
+// widget.backgroundImage = await new Request('YOUR IMAGE URL').loadImage();
 
 if (config.runsInWidget) {
   Script.setWidget(widget);
