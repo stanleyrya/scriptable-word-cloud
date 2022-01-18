@@ -61,7 +61,7 @@ class WordCloud{constructor({width:t,height:e,wordCloudWords:i,weightFunction:o=
  */
 
 function simpleAndCleanWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"TrebuchetMS-Bold"}),fontSize:o.weight/10*50+10,color:Device.isUsingDarkAppearance()?Color.white():Color.black()})}
-function builtInFestiveWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"SnellRoundhand-Black"}),fontSize:o.weight/10*50+10,color:Math.random()<.5?Color.red():Color.green()})}
+function builtInFestiveWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"SnellRoundhand-Black"}),fontSize:o.weight/10*50+10,color:Math.random()<.5?Color.red():new Color("#1E792C")})}
 function hackerWeightFunction(o){const e=new Color(Color.green().hex,Color.green().alpha*(o.weight/10));return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"CourierNewPS-BoldMT"}),fontSize:60,color:e})}
 function celestialWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"GillSans-LightItalic"}),fontSize:o.weight/10*50+10,color:Color.lightGray()})}
 
@@ -82,7 +82,7 @@ function celestialWeightFunction(o){return new WordCloudProcessedWord({word:o.wo
 // https://fonts.google.com/specimen/Lacquer
 function spookyWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"Lacquer",cssUrl:"https://fonts.googleapis.com/css2?family=Lacquer&display=swap"}),fontSize:o.weight/10*50+10,color:Color.orange()})}
 // https://fonts.google.com/specimen/Cinzel+Decorative
-function customFestiveWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"Cinzel Decorative",cssUrl:"https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap"}),fontSize:o.weight/10*50+10,color:Math.random()<.5?Color.red():Color.green()})}
+function customFestiveWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"Cinzel Decorative",cssUrl:"https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap"}),fontSize:o.weight/10*50+10,color:Math.random()<.5?Color.red():new Color("#1E792C")})}
 // https://fonts.google.com/specimen/Fredericka+the+Great
 function stencilWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"Fredericka the Great",cssUrl:"https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap"}),fontSize:o.weight/10*50+10,color:Color.lightGray()})}
 

@@ -71,7 +71,7 @@ function builtInFestiveWeightFunction(wordCloudWord) {
       fontName: 'SnellRoundhand-Black'
     }),
     fontSize: (wordCloudWord.weight / 10) * (max - min) + min,
-    color: Math.random() < 0.5 ? Color.red() : Color.green()
+    color: Math.random() < 0.5 ? Color.red() : new Color('#1E792C')
   });
 }
 
@@ -143,7 +143,7 @@ function customFestiveWeightFunction(wordCloudWord) {
       cssUrl: 'https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap'
     }),
     fontSize: (wordCloudWord.weight / 10) * (max - min) + min,
-    color: Math.random() < 0.5 ? Color.red() : Color.green()
+    color: Math.random() < 0.5 ? Color.red() : new Color('#1E792C')
   });
 }
 
