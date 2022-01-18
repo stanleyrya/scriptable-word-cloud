@@ -63,6 +63,7 @@ class WordCloud{constructor({width:t,height:e,wordCloudWords:i,weightFunction:o=
 function simpleAndCleanWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"TrebuchetMS-Bold"}),fontSize:o.weight/10*50+10,color:Device.isUsingDarkAppearance()?Color.white():Color.black()})}
 function builtInFestiveWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"SnellRoundhand-Black"}),fontSize:o.weight/10*50+10,color:Math.random()<.5?Color.red():Color.green()})}
 function hackerWeightFunction(o){const e=new Color(Color.green().hex,Color.green().alpha*(o.weight/10));return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"CourierNewPS-BoldMT"}),fontSize:60,color:e})}
+function celestialWeightFunction(o){return new WordCloudProcessedWord({word:o.word,wordCloudFont:new WordCloudFont({fontName:"GillSans-LightItalic"}),fontSize:o.weight/10*50+10,color:Color.lightGray()})}
 
 /**
  * Functions that use fonts installed through an app.
@@ -152,18 +153,22 @@ const image = await wordCloud.getImage();
 
 // Sample usage
 
+const widget = new ListWidget();
+widget.setPadding(0, 0, 0, 0);
+const widgetImage = widget.addImage(image);
+widgetImage.applyFillingContentMode();
+widgetImage.centerAlignImage();
+// The word cloud image has a clear background.
+// The default weight function uses Device.isUsingDarkAppearance()
+// to set the font color. It is slow to update
+// which could make the font blend in with the
+// widget's automatic background. To protect
+// against this you can set the background explicitly:
+widget.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
+
 if (config.runsInWidget) {
-  const widget = new ListWidget();
-  widget.setPadding(0, 0, 0, 0);
-  const widgetImage = widget.addImage(image);
-  widgetImage.applyFillingContentMode();
-  widgetImage.centerAlignImage();
-  // Device.isUsingDarkAppearance() is slow to update, but seems to be the
-  // only way to safely update the background and font color at the same time.
-  // This is partly due to Color.dynamic() not working in the Draw Context.
-  widget.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
   Script.setWidget(widget);
   Script.complete();
 } else {
-  await QuickLook.present(image);
+  widget.presentLarge();
 }

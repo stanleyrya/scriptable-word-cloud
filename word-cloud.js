@@ -842,6 +842,19 @@ function hackerWeightFunction(wordCloudWord) {
   });
 }
 
+function celestialWeightFunction(wordCloudWord) {
+  const max = 60;
+  const min = 10;
+  return new WordCloudProcessedWord({
+    word: wordCloudWord.word,
+    wordCloudFont: new WordCloudFont({
+      fontName: 'GillSans-LightItalic'
+    }),
+    fontSize: (wordCloudWord.weight / 10) * (max - min) + min,
+    color: Color.lightGray()
+  });
+}
+
 /**
  * Functions that use fonts installed through an app.
  * A url of the css stylesheet is still required due
@@ -1016,18 +1029,22 @@ const image = await wordCloud.getImage();
 
 // Sample usage
 
+const widget = new ListWidget();
+widget.setPadding(0, 0, 0, 0);
+const widgetImage = widget.addImage(image);
+widgetImage.applyFillingContentMode();
+widgetImage.centerAlignImage();
+// The word cloud image has a clear background.
+// The default weight function uses Device.isUsingDarkAppearance()
+// to set the font color. It is slow to update
+// which could make the font blend in with the
+// widget's automatic background. To protect
+// against this you can set the background explicitly:
+widget.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
+
 if (config.runsInWidget) {
-  const widget = new ListWidget();
-  widget.setPadding(0, 0, 0, 0);
-  const widgetImage = widget.addImage(image);
-  widgetImage.applyFillingContentMode();
-  widgetImage.centerAlignImage();
-  // Device.isUsingDarkAppearance() is slow to update, but seems to be the
-  // only way to safely update the background and font color at the same time.
-  // This is partly due to Color.dynamic() not working in the Draw Context.
-  widget.backgroundColor = Device.isUsingDarkAppearance() ? Color.black() : Color.white();
   Script.setWidget(widget);
   Script.complete();
 } else {
-  await QuickLook.present(image);
+  widget.presentLarge();
 }
