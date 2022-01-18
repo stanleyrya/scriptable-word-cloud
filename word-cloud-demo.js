@@ -257,7 +257,7 @@ function createTitleRow(text) {
   return row;
 }
 
-function createDescriptionRow(text, height, url) {
+function createDescriptionRow(text, height, url, copyText) {
   const row = new UITableRow();
 
   const descriptionCell = row.addText(text);
@@ -267,6 +267,8 @@ function createDescriptionRow(text, height, url) {
   row.height = height || 50;
   if (url) {
     row.onSelect = () => Safari.open(url);
+  } else if (copyText) {
+    row.onSelect = () => Pasteboard.copyString(copyText)
   }
   return row;
 }
@@ -375,7 +377,7 @@ function createCopyPasteableInput(wordCloudData) {
   return demoTemplate.replace("{{INPUT_HERE}}", objWithRealFuncs)
 }
 
-async function createDemoRow(wordCloudData, showJson = true) {
+async function createDemoRow(wordCloudData, showJson = true, displayImageUrl) {
   const smallRow = new UITableRow();
   smallRow.height = 150;
 
@@ -387,9 +389,15 @@ async function createDemoRow(wordCloudData, showJson = true) {
     wordCloudData.height = 250;
   }
   wordCloudData.wordCloudWords = wordCloudWords;
-
-  const wordCloud = new WordCloud(wordCloudData);
-  const image = await wordCloud.getImage();
+  
+  let image;
+  if (displayImageUrl) {
+    image = await new Request(displayImageUrl).loadImage();
+  } else {
+      const wordCloud = new WordCloud(wordCloudData);
+  image = await wordCloud.getImage();
+  }
+  
   const imageCell = smallRow.addImage(image);
   imageCell.centerAligned();
 
@@ -543,7 +551,7 @@ async function createDemoTable() {
 	  await createDemoRow({
       weightFunction: customFestiveWeightFunction,
     }),
-	  createDescriptionRow(`-> https://fonts.google.com/specimen/Fredericka+the+Great`, 60, "https://fonts.google.com/specimen/Fredericka+the+Great`"),
+	  createDescriptionRow(`-> https://fonts.google.com/specimen/Fredericka+the+Great`, 60, "https://fonts.google.com/specimen/Fredericka+the+Great"),
 	  await createDemoRow({
       weightFunction: stencilWeightFunction,
     }),
@@ -553,19 +561,21 @@ async function createDemoTable() {
 
 
 	createTitleRow("Putting it all together!"),
-    createDescriptionRow("All of these features can be joined together with backgrounds to create beautiful word clouds. The word cloud class is transparent, so simply add another image as the background image and voila!", 100),
-    createDescriptionRow("For widgets you can follow these steps below:", 60),
+    createDescriptionRow("All of these features can be joined together with backgrounds to create beautiful word clouds. The word cloud class is transparent, so simply add another image as the background image and voila! For widgets you can add this to your script:", 100),
     createDescriptionRow(`
 widget.backgroundImage = await new Request('YOUR IMAGE URL').loadImage();
-`, 240),
+`, 60),
+    createDescriptionRow("Please note that these scripts won't automatically work by copy-paste like the others in the demo. At this time you will need to copy-paste the image URL into the script to get it working. Sorry!", 80),
+	  createDescriptionRow(`copy -> https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/milky-way.HEIC`, 60, undefined, "https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/milky-way.HEIC"),
 	  await createDemoRow({
       weightFunction: celestialWeightFunction,
       placementFunction: galaxyPlacementFunction,
       respectScreenScale: false,
-    }),
+    }, true, 'https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/17-celestial-background.PNG'),
+	  createDescriptionRow(`copy -> https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/mountain.JPG`, 60, undefined, "https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/mountain.JPG"),
 	  await createDemoRow({
       weightFunction: builtInFestiveWeightFunction,
-    }),
+    }, true, 'https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/18-festive-background.PNG'),
 
 // -------------------------------- //
 
