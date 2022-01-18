@@ -457,19 +457,23 @@ async function createDemoTable() {
     createDescriptionRow("The inputs width, height, centerX, and centerY are pretty straightforward. xRatio and yRatio are the ratio of the side compared to the largest side and can be useful when scaling the algorithm for different input parameters. PreviousResult contains the results from the last iteration of the algorithm, which at a minimum includes the last x and y values. If it's helpful you can pass additional values in the result and use it in the next iteration, like radius and angle in the example.", 180),
     createDescriptionRow("I recommend reading the example functions and modifying them to understand how they work. I also recommend googling some cool (x,y) plots and converting them to placement functions. For investigation you could modify my script here:", 100),
     createDescriptionRow("-> https://github.com/stanleyrya/scriptable-playground/blob/main/experiments/word-cloud-experiments/draw-spiral.js", 60, 'https://github.com/stanleyrya/scriptable-playground/blob/main/experiments/word-cloud-experiments/draw-spiral.js'),
-    createDescriptionRow("Here are some placement algorithms I created that are different than the provided spiral one. When the debug parameter is set to true you can see what the algorithm is plotting:", 80),
+    createDescriptionRow("Here are some placement algorithms I created that are different than the provided spiral one. When the debug parameter is set to true you can see what the algorithm is plotting. Please note that respectScreenScale may need to be set to false in order to render these on the home screen due to memory limitations.", 140),
 	  await createDemoRow({
       placementFunction: galaxyPlacementFunction,
+      respectScreenScale: false,
     }),
 	  await createDemoRow({
       placementFunction: galaxyPlacementFunction,
+      respectScreenScale: false,
       debug: true
     }),
     await createDemoRow({
       placementFunction: starPlacementFunction,
+      respectScreenScale: false,
     }),
 	  await createDemoRow({
       placementFunction: starPlacementFunction,
+      respectScreenScale: false,
       debug: true
     }),
 

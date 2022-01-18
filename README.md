@@ -110,14 +110,14 @@ The inputs width, height, centerX, and centerY are pretty straightforward. xRati
 
 I recommend reading the example functions and modifying them to understand how they work. I also recommend googling some cool (x,y) plots and converting them to placement functions. For investigation you could modify [my script here](https://github.com/stanleyrya/scriptable-playground/blob/main/experiments/word-cloud-experiments/draw-spiral.js).
 
-Here are some placement algorithms I created that are different than the provided spiral one. When the debug parameter is set to true you can see what the algorithm is plotting:
+Here are some placement algorithms I created that are different than the provided spiral one. When the debug parameter is set to true you can see what the algorithm is plotting. Please note that respectScreenScale may need to be set to false in order to render these on the home screen due to memory limitations.
 
 | Dark Mode | Light Mode | Simplified Input |
 | --- | --- | --- |
-| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/7-galaxy-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/7-galaxy-light.JPG) | `{ placementFunction: galaxyPlacementFunction }` |
-| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/8-galaxy-debug-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/8-galaxy-debug-light.JPG) | `{ placementFunction: galaxyPlacementFunction, debug: true }` |
-| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/9-star-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/9-star-light.JPG) | `{ placementFunction: starPlacementFunction }` |
-| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/10-star-debug-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/10-star-debug-light.JPG) | `{ placementFunction: starPlacementFunction, debug: true }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/7-galaxy-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/7-galaxy-light.JPG) | `{ placementFunction: galaxyPlacementFunction, respectScreenScale: false }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/8-galaxy-debug-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/8-galaxy-debug-light.JPG) | `{ placementFunction: galaxyPlacementFunction, respectScreenScale: false, debug: true }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/9-star-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/9-star-light.JPG) | `{ placementFunction: starPlacementFunction, respectScreenScale: false }` |
+| ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/10-star-debug-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/10-star-debug-light.JPG) | `{ placementFunction: starPlacementFunction,, respectScreenScale: false, debug: true }` |
 
 ## Weight Functions!
 Word clouds aren't complete without modifying the font! A weight function can be provided to modify how the words are displayed. You can use this function to convert weight to size, font type, opacity, color, and more! Here's the default method for context:
