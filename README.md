@@ -2,7 +2,7 @@
 
 ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/1-title-dark.JPG)
 
-A set of classes that can create a word cloud image. Basic Usage:
+A set of classes that can create a word cloud image in the [Scriptable iOS app](https://scriptable.app/). Basic Usage:
 ```
 const wordCloudWords = [new WordCloudWord({word, weight}), ...]
 const wordCloud = new WordCloud({width, height, wordCloudWords});
