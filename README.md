@@ -176,9 +176,9 @@ After all of that hassle I hope you agree the effort is worth it! Once these fon
 
 | Font Link | Dark Mode | Light Mode | Broken / Missing Font | Simplified Input |
 | --- | --- | --- | --- | --- |
-| [Lacquer](https://fonts.google.com/specimen/Lacquer) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/13-custom-spooky-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/13-custom-spooky-light.JPG) | TODO | `{ weightFunction: builtInFestiveWeightFunction }` |
-| [Cinzel Decorative](https://fonts.google.com/specimen/Cinzel+Decorative) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-light.JPG) | TODO | `{ weightFunction: hackerWeightFunction }` |
-| [Fredericka the Great](https://fonts.google.com/specimen/Fredericka+the+Great) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-light.JPG) | TODO | `{ weightFunction: hackerWeightFunction }` |
+| [Lacquer](https://fonts.google.com/specimen/Lacquer) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/13-custom-spooky-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/13-custom-spooky-light.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/13-custom-spooky-broken.JPG) | `{ weightFunction: builtInFestiveWeightFunction }` |
+| [Cinzel Decorative](https://fonts.google.com/specimen/Cinzel+Decorative) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-light.JPG) |  ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-broken.JPG) | `{ weightFunction: hackerWeightFunction }` |
+| [Fredericka the Great](https://fonts.google.com/specimen/Fredericka+the+Great) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-light.JPG) |  ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-broken.JPG) | `{ weightFunction: stencilWeightFunction }` |
 
 
 ## Thank You!
