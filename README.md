@@ -180,6 +180,17 @@ After all of that hassle I hope you agree the effort is worth it! Once these fon
 | [Cinzel Decorative](https://fonts.google.com/specimen/Cinzel+Decorative) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-light.JPG) |  ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/14-custom-festive-broken.JPG) | `{ weightFunction: hackerWeightFunction }` |
 | [Fredericka the Great](https://fonts.google.com/specimen/Fredericka+the+Great) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-dark.JPG) | ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-light.JPG) |  ![](https://github.com/stanleyrya/scriptable-word-cloud/blob/main/images/15-custom-stencil-broken.JPG) | `{ weightFunction: stencilWeightFunction }` |
 
+## Putting it all together!
+
+All of these features can be joined together with backgrounds to create beautiful word clouds. The word cloud class is transparent, so simply add another image as the background image and voila! For widgets you can add this to your script:
+
+```
+widget.backgroundImage = await new Request('YOUR IMAGE URL').loadImage();
+```
+| Image Link | Result | Simplified Input |
+| --- | --- | --- |
+| ["Milky Way"](https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/milky-way.HEIC) | ![](https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/17-celestial-background.PNG) | `{ weightFunction: celestialWeightFunction, placementFunction: galaxyPlacementFunction, respectScreenScale: false }` |
+| ["Mountain"](https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/mountain.JPG) | ![](https://raw.githubusercontent.com/stanleyrya/scriptable-word-cloud/main/images/18-festive-background.PNG) | `{ weightFunction: builtInFestiveWeightFunction }` |
 
 ## Thank You!
 
