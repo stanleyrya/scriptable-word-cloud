@@ -125,8 +125,14 @@ const wordCloudWords = [
   new WordCloudWord({ word: "Fort", weight: 1 })
 ];
 
-const width = config.widgetFamily === "small" ? 250 : 530;
-const height = config.widgetFamily === "large" ? 530 : 250;
+let width, height;
+if (config.runsInWidget) {
+  width = config.widgetFamily === "small" ? 250 : 530;
+  height = config.widgetFamily === "large" ? 530 : 250;
+} else {
+  width = 250;
+  height = 250;
+}
 
 const wordCloud = new WordCloud({
   // required
